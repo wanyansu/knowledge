@@ -101,8 +101,20 @@ Use `outline-none` to cancel out any outlines. `outline-offset-4` will created a
 
 #### Effects
 
-`blur-md` addes a blurry filter on top of an existing element (img).
+`blur-md` adds a blurry filter on top of an existing element (img).
 
 `bg-cyan-500/50` adds 50% opacity.
 
+`brightness-100` can set the brightness of the element. `contrast-100`, `greyscale-0` and `drop-shadow` are all self explanatory. For the full list of the filter effects, refer to [here](https://tailwindcss.com/docs/blur)
 
+#### Animations
+
+Use `transition` class with the `hover:-translate-y-1` in the same component to create a hover effect.
+
+`delay-50` determines how many milliseconds before something happens. `duration-100` determines the length of the time.
+
+Some default animation effects are `animate-spin`, `animate-ping` (notifications), `animate-pulse` (skeletons) and `animate-bounce`.
+
+`origin-top-left` and `rotate-45` can be used together and the origin position determines the pivotal point at which the element rotates.
+
+`skew-y-12`
