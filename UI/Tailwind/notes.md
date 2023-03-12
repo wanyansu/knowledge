@@ -118,3 +118,112 @@ Some default animation effects are `animate-spin`, `animate-ping` (notifications
 `origin-top-left` and `rotate-45` can be used together and the origin position determines the pivotal point at which the element rotates.
 
 `skew-y-12`
+
+<br>
+
+#### Design Systems
+
+**By Default, tailwind wipes out the styling differences for h1, h2, h3 etc.**
+
+To ensure components are reusable, go to `global.css`:
+
+```css
+@layer base {
+    html {
+        color: red;
+      }
+
+    h1 {
+        @apply mb-2 text-3xl font-bold;
+      }
+
+    a {
+        @apply underline text-blue-600 hover:text-purple-500 transition decoration-wavy;
+      }
+    
+    input,
+    select {
+        @apply text-slate-500 border border-slate-300 p-1 rounded-sm outline-none mb-1;
+      }
+
+    input[type="text"] {
+        @apply disabled:bg-slate-100 placeholder:italic;
+      }
+
+    input[type="checkbox"] {
+        @apply p-2 accent-purple-500 mr-1;
+        // `appearance-none` will remove the stylings for the default checkbox, however, it also removes the check tick.
+      }
+
+    label {
+        @apply text-sm text-slate-700 font-medium leading-4;
+        // This is fine tuning the design of a checkbox so that it is aligned to the first line of fonts.
+        // <div className="flex items-start my-4"><input /><label></label></div>
+      }
+
+    select {
+        @apply pr-8;
+      }
+
+    .btn {
+        @apply px-4 py-2 rounded-lg hover:transition hover:duration-300 hover:opacity-80 disabled:bg-slate-400/40 hover:disabled:opacity-100;
+      }
+
+    .btn-primary {
+        @apply bg-blue-600 hover:bg-blue-500 text-white;
+      }
+
+    .btn-secondary {
+        @apply bg-slate-800 text-white;
+      }
+  }
+```
+<br>
+
+*Special* - Customised Select Menu:
+
+```tsx
+<div className="Select">
+  <div className="flex items-center justify-between child" onclick={() => setIsOpen(!isOpen)}>
+    <span>{selectValue}</span>
+    <div className={isOpen ? "rotate-180 transition": "rotate-0"}>
+      <ArrowDown />
+    </div>
+  </div>
+  {isOpen && (
+    <div>
+      <ul>
+        <li className="child" onClick={() => updateValue("Option 1")}>
+          Option 1
+        </li>
+        <li className="child" onClick={() => updateValue("Option 2")}>
+          Option 2
+        </li>
+        <li className="child" onClick={() => updateValue("Option 3")}>
+          Option 3
+        </li>
+      </ul>
+    </div>
+  )}
+</div>
+```
+
+The above ArrowDown svg is downloaded from [this](https://icones.js.org) website.
+
+<br>
+
+```css
+.Select {
+    @apply w-32 border border-slate-300 rounded outline-none transition inline-block cursor-pointer;
+  }
+
+.Select .child {
+    @apply text-slate-500 px-2 py-1
+  }
+
+.Select ul li {
+    @apply hover:bg-slate-100;
+  }
+```
+
+#### Core Concepts
