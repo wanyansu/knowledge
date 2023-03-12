@@ -89,4 +89,20 @@ If using `float-left` or `float-right`, texts will wrap around the component. Us
 
 For `absolute` position, to adjust t/b/l/r, use the `inset-x-0` default classNames or the `top-0`.
 
-`object-left-bottom` is used to control the location of itself to be shown.
+`object-left-bottom` is used to control the location of itself to be shown
+
+#### Borders
+
+`divide-cyan-300` and `divide-x-2` will create the borders in-between elements. If a reverse is used in flex, add the `divide-2-reverse` to ensure they are placed correctly.
+
+Use `outline-none` to cancel out any outlines. `outline-offset-4` will created an empty space between the outline and the element.
+
+`ring-4` will create a shadow surrounding an element. This ring can be styled and coloured.
+
+#### Effects
+
+`blur-md` addes a blurry filter on top of an existing element (img).
+
+`bg-cyan-500/50` adds 50% opacity.
+
+
