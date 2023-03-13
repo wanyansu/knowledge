@@ -227,3 +227,27 @@ The above ArrowDown svg is downloaded from [this](https://icones.js.org) website
 ```
 
 #### Core Concepts
+
+You can style an element by using `first:pt-0` or `last:pb-0` etc. Before and after pseudo elements are also directly possible.
+
+*Components*
+
+```css
+@layer components {
+    .card {
+        background-color: theme('colors.white');
+        border-radius: theme('borderRadius.lg');
+        padding: theme('spacing.6');
+      }
+  }
+```
+
+*Custom utilities*
+
+```css
+@layer utilities {
+    .content-auto {
+        content-visibility: auto;
+      }
+  }
+```
