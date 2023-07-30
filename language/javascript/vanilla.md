@@ -72,11 +72,11 @@ HTMLElement.prototype.$$ = (a, b, c) => this.querySelectorAll(s);
 
 ## Coffee shop project
 
-### modularity
+### Modularity
 
 * To change the scripts to be run as ECMAScripts, go with `<script src="./app.js" defer type="module"></script>`. Everything is global by default in js. Only until we add ECMA module, files can import and export from other files.
 
-### routing
+### Routing
 
 To create a SPA, there are two ways to achieve via Vanilla js:
 
@@ -85,7 +85,6 @@ To create a SPA, there are two ways to achieve via Vanilla js:
 2. Hide page and show new page when interacted.
 
 e.g. `<section id="section1" hidden></section>`
-
 __note__
 
 In modern devs, the History API will help fake the URL after the main domain, so that it doesn't really load another page from the server. Example:
@@ -101,3 +100,33 @@ window.addEventListener("popstate", event => {
 ```
 
 Popstate won't be fired if the user clicks on an external link or changes the URL manually.
+
+### Reactivity
+
+__Proxy__
+
+Proxy is a special object that wraps a js object and provide special functions:
+
+```JavaScript
+const original = {
+  name: "John Doe",
+  age: 30
+};
+
+const s = new Proxy(original, handler);
+
+const handler = {
+  get: function(target, prop) {
+    if (prop === 'age') {
+      return target[prop] + " years old";
+    } else {
+      return target[prop];
+    }
+  }
+};
+
+console.log(s.age);
+```
+
+_Another good example use case for proxy is type checker._
+
